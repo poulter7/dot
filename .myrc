@@ -1,0 +1,14 @@
+echo "Sourcing $0"
+
+_remap_keys(){
+	hidutil property --set '{"UserKeyMapping":[
+	{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
+	{"HIDKeyboardModifierMappingSrc":0x7000000E6,"HIDKeyboardModifierMappingDst":0x700000045},
+	]}'
+}
+
+alias remap-keys='_remap_keys'
+
+remap-keys || true
+
+alias resource="echo Sourcing ~/.zshrc && source ~/.zshrc"
