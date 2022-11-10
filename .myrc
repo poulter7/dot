@@ -1,26 +1,42 @@
 echo "Sourcing $0"
 
-# Utilities
-dependson(){
-    if ! [ -x "$(command -v $1)" ]; then
-        brew install $1
-    fi
+init(){
+	# install brew
+	echo "[brew]"
+	which -s brew
+	if [[ $? != 0 ]] ; then
+	    # install homebrew
+	    echo "installing"
+	    ruby -e "$(curl -fssl https://raw.githubusercontent.com/homebrew/install/master/install)"
+	else
+	    echo "updating"
+	    brew update
+	fi
+
+	echo "[vimac]"
+	if [[ ! -d "/applications/vimac.app" ]]; then
+		echo "installing"
+		# install vimac
+		brew tap kidonng/malt
+		brew install vimac
+	else
+		echo "already installed"
+	fi
 }
-dependson tmux
 
 # Load tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
 
-_remap_keys(){
+remap_keys(){
 	hidutil property --set '{"UserKeyMapping":[
 	{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
 	{"HIDKeyboardModifierMappingSrc":0x7000000E6,"HIDKeyboardModifierMappingDst":0x700000045},
 	]}'
 }
 
-_remap-keys || true
+remap-keys || true
 
 alias resource="echo Sourcing ~/.zshrc && source ~/.zshrc"
 
