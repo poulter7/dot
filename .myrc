@@ -64,5 +64,5 @@ myrcstartup(){
 	remap_keys || true
 }
 
-myrconetime
+# myrconetime
 myrcstartup
