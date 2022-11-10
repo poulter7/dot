@@ -44,7 +44,7 @@ myrconetime(){
 	else
 		echo "already installed"
 	fi
-	alias vim=nvim
+	alias vim=lvim
 }
 
 myrcstartup(){
