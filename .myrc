@@ -1,5 +1,18 @@
 echo "Sourcing $0"
 
+# Utilities
+dependson(){
+    if ! [ -x "$(command -v $1)" ]; then
+        brew install $1
+    fi
+}
+dependson tmux
+
+# Load tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
 _remap_keys(){
 	hidutil property --set '{"UserKeyMapping":[
 	{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
@@ -7,8 +20,7 @@ _remap_keys(){
 	]}'
 }
 
-alias remap-keys='_remap_keys'
-
-remap-keys || true
+_remap-keys || true
 
 alias resource="echo Sourcing ~/.zshrc && source ~/.zshrc"
+
