@@ -1,6 +1,8 @@
 echo "Sourcing $0"
 
-init(){
+alias resource="echo Sourcing ~/.zshrc && source ~/.zshrc"
+
+myrconetime(){
 	# install brew
 	echo "[brew]"
 	which -s brew
@@ -22,21 +24,37 @@ init(){
 	else
 		echo "already installed"
 	fi
+
+	echo "[tmux]"
+	if [[ ! -d "/applications/vimac.app" ]]; then
+		echo "installing"
+		# install vimac
+		brew install tmux
+	else
+		echo "already installed"
+	fi
+
+	echo "[tmux conf]
+	curl -s https://raw.githubusercontent.com/poulter7/dot/main/.tmux.conf > ~/.tmux.conf
 }
 
-# Load tmux
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
-
-remap_keys(){
-	hidutil property --set '{"UserKeyMapping":[
-	{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
-	{"HIDKeyboardModifierMappingSrc":0x7000000E6,"HIDKeyboardModifierMappingDst":0x700000045},
-	]}'
+myrcstartup(){
+	echo "Startup"
+	# Load tmux
+	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+	  echo "Executing tmux"
+	  exec tmux
+	else
+	  echo "Skipped tmux"
+	fi
+	remap_keys(){
+		hidutil property --set '{"UserKeyMapping":[
+		{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
+		{"HIDKeyboardModifierMappingSrc":0x7000000E6,"HIDKeyboardModifierMappingDst":0x700000045},
+		]}'
+	}
+	remap_keys || true
 }
 
-remap-keys || true
-
-alias resource="echo Sourcing ~/.zshrc && source ~/.zshrc"
-
+# myrconetime
+myrcstartup
