@@ -26,16 +26,24 @@ myrconetime(){
 	fi
 
 	echo "[tmux]"
-	if [[ ! -d "/applications/vimac.app" ]]; then
+	if ! [ -x  "$(command -v tmux)" ]; then
 		echo "installing"
-		# install vimac
 		brew install tmux
+
+		echo "[tmux conf]"
+		curl -s https://raw.githubusercontent.com/poulter7/dot/main/.tmux.conf > ~/.tmux.conf
 	else
 		echo "already installed"
 	fi
 
-	echo "[tmux conf]
-	curl -s https://raw.githubusercontent.com/poulter7/dot/main/.tmux.conf > ~/.tmux.conf
+
+	echo "[nvim]"
+	if ! [ -x  "$(command -v nvim)" ]; then
+		brew install neovim
+	else
+		echo "already installed"
+	fi
+	alias vim=nvim
 }
 
 myrcstartup(){
@@ -56,5 +64,5 @@ myrcstartup(){
 	remap_keys || true
 }
 
-# myrconetime
+myrconetime
 myrcstartup
