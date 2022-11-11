@@ -1,3 +1,4 @@
+#!/bin/zsh
 echo "Sourcing $0"
 
 alias resource="echo Sourcing ~/.zshrc && source ~/.zshrc"
@@ -68,6 +69,8 @@ myrcstartup(){
 	else
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/lvim/config.lua > ~/.config/lvim/config.lua
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/p10k/.p10k.zsh > ~/.p10k.zsh
+	
+          set -o vi
     source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 	  echo "Skipped tmux"
 	fi
