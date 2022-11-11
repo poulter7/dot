@@ -1,6 +1,4 @@
 #!/bin/zsh
-echo "Sourcing $0"
-
 alias resource="echo Sourcing ~/.zshrc && source ~/.zshrc"
 
 myrconetime(){
@@ -65,10 +63,8 @@ myrconetime(){
 }
 
 myrcstartup(){
-	echo "Startup"
 	# Load tmux
 	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	  echo "Executing tmux"
 	  curl -s https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > ~/.tmux.conf
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/tmux/.tmux.conf > ~/.tmux.conf.local
 	  exec tmux
@@ -79,13 +75,13 @@ myrcstartup(){
 	
     set -o vi
     source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-	  echo "Skipped tmux"
+    alias resource="source ~/.zshrc"
 	fi
 	remap_keys(){
 		hidutil property --set '{"UserKeyMapping":[
 		{"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
 		{"HIDKeyboardModifierMappingSrc":0x7000000E6,"HIDKeyboardModifierMappingDst":0x700000045},
-		]}'
+		]}' > /dev/null
 	}
 	remap_keys || true
 }
