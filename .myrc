@@ -33,6 +33,20 @@ myrconetime(){
 		echo "already installed"
 	fi
 
+  if [ -d ~/.oh-my-zsh ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   else
+    echo "oh-my-zsh is not installed"
+  fi
+
+  echo "[powerlevel10k]"
+	if ! [ -x  "$(command -v p10k)" ]; then
+    echo "installing"
+    brew install romkatv/powerlevel10k/powerlevel10k
+	else
+		echo "already installed"
+	fi
+
 
 	echo "[lvim]"
 	if ! [ -x  "$(command -v lvim)" ]; then
@@ -53,6 +67,8 @@ myrcstartup(){
 	  exec tmux
 	else
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/lvim/config.lua > ~/.config/lvim/config.lua
+	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/p10k/.p10k.zsh > ~/.p10k.zsh
+    source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 	  echo "Skipped tmux"
 	fi
 	remap_keys(){
