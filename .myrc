@@ -34,6 +34,13 @@ myrconetime(){
 		echo "already installed"
 	fi
 
+	echo "[tmuxp]"
+	if [[ ! -d "~/.tmux/plugins/tpm" ]]; then
+		git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	else
+		echo "already installed"
+	fi
+
   if [ -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
    else
@@ -55,7 +62,6 @@ myrconetime(){
 	else
 		echo "already installed"
 	fi
-	alias vim=lvim
 }
 
 myrcstartup(){
@@ -67,10 +73,11 @@ myrcstartup(){
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/tmux/.tmux.conf > ~/.tmux.conf.local
 	  exec tmux
 	else
+    alias vim=lvim
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/lvim/config.lua > ~/.config/lvim/config.lua
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/p10k/.p10k.zsh > ~/.p10k.zsh
 	
-          set -o vi
+    set -o vi
     source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 	  echo "Skipped tmux"
 	fi
