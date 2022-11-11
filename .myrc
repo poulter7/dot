@@ -69,7 +69,10 @@ myrcstartup(){
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/tmux/.tmux.conf > ~/.tmux.conf.local
 	  exec tmux
 	else
-    
+    source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+      source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/lvim/config.lua > ~/.config/lvim/config.lua
 	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/p10k/.p10k.zsh > ~/.p10k.zsh
     set -o vi
@@ -77,7 +80,6 @@ myrcstartup(){
 {"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
 {"HIDKeyboardModifierMappingSrc":0x7000000E6,"HIDKeyboardModifierMappingDst":0x700000045},
 ]}' > /dev/null
-    source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 	fi
 
 }
