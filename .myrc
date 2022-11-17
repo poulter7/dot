@@ -1,3 +1,5 @@
+#!/bin/bash
+
 alias resource="source ~/.zshrc"
 alias vim="lvim"
 
@@ -74,10 +76,10 @@ myrcstartup(){
 	# Load tmux
 	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 	  curl -s https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > ~/.tmux.conf
-	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/tmux/.tmux.conf > ~/.tmux.conf.local
+	  ln -sF "${ROOT}/tmux/.tmux.conf" ~/.tmux.conf.local
 	  exec tmux
 	else
-	  curl -s https://raw.githubusercontent.com/poulter7/dot/main/lvim/config.lua > ~/.config/lvim/config.lua
+	  ln -sF "${ROOT}/lvim/config.lua" ~/.config/lvim/config.lua
     set -o vi
   	hidutil property --set '{"UserKeyMapping":[
 {"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
@@ -89,3 +91,4 @@ myrcstartup(){
 
 # myrconetime
 myrcstartup
+export ROOT=~/workspaces/dot/

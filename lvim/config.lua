@@ -175,24 +175,31 @@ lvim.plugins = {
   {"ishan9299/nvim-solarized-lua"},
   {"alexghergh/nvim-tmux-navigation"},
   {"nvim-lua/plenary.nvim"},
-  {"nvim-telescope/telescope.nvim"},
+  {"tpope/vim-obsession"},
+  {"jvgrootveld/telescope-zoxide"},
+  {"mrjones2014/dash.nvim", run="make install" },
   {
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
     config = function()
       -- you can configure Hop the way you like here; see :h hop-config
       require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-      vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
-      vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "f", ":HopChar2<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "F", ":HopWord<cr>", { silent = true })
     end
   }
 }
-local builtin = require('telescope.builtin')
-lvim.keys.normal_mode['ff']=":Telescope find_files<CR>"
-lvim.keys.normal_mode['fg']=":Telescope live_grep<CR>"
-lvim.keys.normal_mode['fb']=":Telescope buffers<CR>"
-lvim.keys.normal_mode['fh']=":Telescope help_tags<CR>"
+lvim.keys.normal_mode['<leader><leader>f']=":Telescope find_files<CR>"
+lvim.keys.normal_mode['<leader><leader>g']=":Telescope live_grep<CR>"
+lvim.keys.normal_mode['<leader>b']=":Telescope buffers<CR>"
+lvim.keys.normal_mode['<leader>h']=":Telescope help_tags<CR>"
 
+lvim.builtin.telescope.on_config_done = function(telescope)
+  pcall(telescope.load_extension, "frecency")
+  pcall(telescope.load_extension, "neoclip")
+  pcall(telescope.load_extension, "zoxide")
+  -- any other extensions loading
+end
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
