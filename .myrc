@@ -60,6 +60,14 @@ myrconetime(){
 	else
 		echo "already installed"
 	fi
+
+	echo "[ripgrep]"
+	if ! [ -x  "$(command -v rg)" ]; then
+		echo "installing"
+		brew install ripgrep
+	else
+		echo "already installed"
+	fi
 }
 
 myrcstartup(){

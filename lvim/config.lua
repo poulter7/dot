@@ -7,7 +7,6 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
@@ -171,10 +170,29 @@ lvim.builtin.treesitter.highlight.enable = true
 -- }
 
 -- Additional Plugins
+
 lvim.plugins = {
   {"ishan9299/nvim-solarized-lua"},
-  {"alexghergh/nvim-tmux-navigation"}
+  {"alexghergh/nvim-tmux-navigation"},
+  {"nvim-lua/plenary.nvim"},
+  {"nvim-telescope/telescope.nvim"},
+  {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      -- you can configure Hop the way you like here; see :h hop-config
+      require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+      vim.api.nvim_set_keymap("n", "s", ":HopChar2<cr>", { silent = true })
+      vim.api.nvim_set_keymap("n", "S", ":HopWord<cr>", { silent = true })
+    end
+  }
 }
+local builtin = require('telescope.builtin')
+lvim.keys.normal_mode['ff']=":Telescope find_files<CR>"
+lvim.keys.normal_mode['fg']=":Telescope live_grep<CR>"
+lvim.keys.normal_mode['fb']=":Telescope buffers<CR>"
+lvim.keys.normal_mode['fh']=":Telescope help_tags<CR>"
+
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
