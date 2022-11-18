@@ -81,6 +81,7 @@ myrcstartup(){
 	  ln -sF ~/workspaces/dot/lvim/config.lua ~/.config/lvim/config.lua 
     alias cd=z
     set -o vi
+    export GIT_EDITOR=lvim
   	hidutil property --set '{"UserKeyMapping":[
 {"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
 {"HIDKeyboardModifierMappingSrc":0x7000000E6,"HIDKeyboardModifierMappingDst":0x700000045},
