@@ -79,6 +79,7 @@ myrcstartup(){
 	  exec tmux
 	else
 	  ln -sF ~/workspaces/dot/lvim/config.lua ~/.config/lvim/config.lua 
+    source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
     set -o vi
   	hidutil property --set '{"UserKeyMapping":[
 {"HIDKeyboardModifierMappingSrc":0x7000000E7,"HIDKeyboardModifierMappingDst":0x700000044},
