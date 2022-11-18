@@ -80,6 +80,7 @@ myrcstartup(){
 	else
 	  ln -sF ~/workspaces/dot/lvim/config.lua ~/.config/lvim/config.lua 
     alias cd=z
+    source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
     set -o vi
     export GIT_EDITOR=lvim
   	hidutil property --set '{"UserKeyMapping":[
