@@ -70,7 +70,7 @@ lvim.keys.normal_mode["<C-Space>"] = nvim_tmux_nav.NvimTmuxNavigateNext
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.alpha.mode = "startify"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
@@ -127,13 +127,13 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- -- you can set a custom on_attach function that will be used for all the language servers
 -- -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
+lvim.lsp.on_attach_callback = function(client, bufnr)
+  local function buf_set_option(...)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+end
 
 -- -- set a formatter, this will override the language server formatting capabilities (if it exists)
 -- local formatters = require "lvim.lsp.null-ls.formatters"
@@ -172,12 +172,25 @@ lvim.builtin.treesitter.highlight.enable = true
 -- Additional Plugins
 
 lvim.plugins = {
+  {"lewis6991/impatient.nvim"},
   {"ishan9299/nvim-solarized-lua"},
   {"alexghergh/nvim-tmux-navigation"},
   {"nvim-lua/plenary.nvim"},
   {"tpope/vim-obsession"},
   {"jvgrootveld/telescope-zoxide"},
   {"mrjones2014/dash.nvim", run="make install" },
+{
+    "AckslD/nvim-neoclip.lua",
+  requires = {
+    -- you'll need at least one of these
+    -- {'nvim-telescope/telescope.nvim'},
+    -- {'ibhagwan/fzf-lua'},
+  },
+  config = function()
+    require('neoclip').setup()
+  end
+
+  },
   {
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
@@ -187,6 +200,17 @@ lvim.plugins = {
       vim.api.nvim_set_keymap("n", "f", ":HopChar2<cr>", { silent = true })
       vim.api.nvim_set_keymap("n", "F", ":HopWord<cr>", { silent = true })
     end
+  },
+{
+    "folke/trouble.nvim",
+  requires = "kyazdani42/nvim-web-devicons",
+  config = function()
+    require("trouble").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  end
   }
 }
 lvim.keys.normal_mode['<leader><leader>f']=":Telescope find_files<CR>"
@@ -198,6 +222,7 @@ lvim.builtin.telescope.on_config_done = function(telescope)
   pcall(telescope.load_extension, "frecency")
   pcall(telescope.load_extension, "neoclip")
   pcall(telescope.load_extension, "zoxide")
+  pcall(telescope.load_extension, "neoclip")
   -- any other extensions loading
 end
 
