@@ -260,7 +260,7 @@ lvim.plugins = {
     config = function()
       require('neoclip').setup()
     end
-
+  },
 {
     "folke/trouble.nvim",
   requires = "kyazdani42/nvim-web-devicons",
