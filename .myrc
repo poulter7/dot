@@ -1,6 +1,7 @@
 #!/bin/bash
 alias resource="source ~/.zshrc"
 alias vim="lvim"
+alias v="lvim"
 
 myrconetime(){
 	# install brew
@@ -80,6 +81,7 @@ myrcstartup(){
 	else
 	  ln -sF ~/workspaces/dot/lvim/config.lua ~/.config/lvim/config.lua 
     alias cd=z
+    eval "$(zoxide init zsh)"
     source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
     set -o vi
     export GIT_EDITOR=lvim
