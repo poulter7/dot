@@ -74,7 +74,7 @@ myrconetime(){
 
 myrcstartup(){
 	# Load tmux
-	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ "$TERM_PROGRAM" == "vscode" ]]; then
+	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ ! "$TERM_PROGRAM" =~ "vscode" ]]; then
 	  curl -s https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > ~/.tmux.conf
     ln -sF ~/workspaces/dot/tmux/.tmux.conf ~/.tmux.conf.local 
     ln -sF ~/workspaces/dot/idea/.ideavimrc ~/.ideavimrc
