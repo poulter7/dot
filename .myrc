@@ -37,7 +37,6 @@ myrconetime(){
   if ! [ -x "$(command -v spotifyd)" ]; then
     brew install spotifyd
     brew services start spotifyd
-    sudo ln -sF ~/workspaces/dot/spotifyd/spotifyd /etc/spotifyd.conf
   else
     echo "already installed"
   fi
@@ -93,17 +92,20 @@ myrconetime(){
 	else
 		echo "already installed"
 	fi
+
+  echo "[setting up configs]"
+  curl -s https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > ~/.tmux.conf
+  ln -sF ~/workspaces/dot/tmux/.tmux.conf ~/.tmux.conf.local 
+  ln -sF ~/workspaces/dot/idea/.ideavimrc ~/.ideavimrc
+  ln -sF ~/workspaces/dot/lvim/config.lua ~/.config/lvim/config.lua 
+  sudo ln -sF ~/workspaces/dot/spotifyd/spotifyd /etc/spotifyd.conf
 }
 
 myrcstartup(){
 	# Load tmux
 	if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [[ ! "$TERM_PROGRAM" =~ "vscode" ]] && [[ ! "$TERMINAL_EMULATOR" =~ "JetBrains-JediTerm" ]]; then
-	  curl -s https://raw.githubusercontent.com/gpakosz/.tmux/master/.tmux.conf > ~/.tmux.conf
-    ln -sF ~/workspaces/dot/tmux/.tmux.conf ~/.tmux.conf.local 
-    ln -sF ~/workspaces/dot/idea/.ideavimrc ~/.ideavimrc
 	  exec tmux
 	else
-	  ln -sF ~/workspaces/dot/lvim/config.lua ~/.config/lvim/config.lua 
     alias cd=z
     eval "$(zoxide init zsh)"
     eval "$(direnv hook zsh)"
