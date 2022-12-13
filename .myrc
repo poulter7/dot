@@ -26,6 +26,29 @@ myrconetime(){
 		echo "already installed"
 	fi
 
+  echo "[direnv]"
+  if ! [ -x "$(command -v direnv)" ]; then
+    curl -sfL https://direnv.net/install.sh | bash
+  else
+    echo "already installed"
+  fi
+
+  echo "[spotifyd]"
+  if ! [ -x "$(command -v spotifyd)" ]; then
+    brew install spotifyd
+    brew services start spotifyd
+    sudo ln -sF ~/workspaces/dot/spotifyd/spotifyd /etc/spotifyd.conf
+  else
+    echo "already installed"
+  fi
+
+  echo "[spotify-tui]"
+  if ! [ -x "$(command -v spt)" ]; then
+    brew install spotify-tui
+  else
+    echo "already installed"
+  fi
+
 	echo "[tmux]"
 	if ! [ -x  "$(command -v tmux)" ]; then
 		echo "installing"
@@ -83,6 +106,7 @@ myrcstartup(){
 	  ln -sF ~/workspaces/dot/lvim/config.lua ~/.config/lvim/config.lua 
     alias cd=z
     eval "$(zoxide init zsh)"
+    eval "$(direnv hook zsh)"
     source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
     set -o vi
     export GIT_EDITOR=lvim
