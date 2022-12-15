@@ -13,11 +13,13 @@ an executable
 
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = false
+lvim.transparent_window = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+lvim.builtin.orgmode = { active = true }
 -- add your own keymapping
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
@@ -191,6 +193,16 @@ if vim.g.vscode then
 else
 
 lvim.plugins = {
+  {
+    
+      "hrsh7th/nvim-cmp",
+      requires = {
+          "hrsh7th/cmp-buffer", "hrsh7th/cmp-nvim-lsp",
+          'quangnguyen30192/cmp-nvim-ultisnips', 'hrsh7th/cmp-nvim-lua',
+          'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
+          'f3fora/cmp-spell', 'hrsh7th/cmp-emoji'
+      }
+  },
   {"lewis6991/impatient.nvim"},
   {"ishan9299/nvim-solarized-lua"},
   {"alexghergh/nvim-tmux-navigation"},
@@ -265,6 +277,10 @@ lvim.plugins = {
     end
 
   },
+  {'nvim-orgmode/orgmode', config = function()
+    require('orgmode').setup()
+  end
+  },
   {
     'phaazon/hop.nvim',
     branch = 'v2', -- optional but strongly recommended
@@ -303,7 +319,7 @@ end
 
 --require("orgmode").setup_ts_grammar()
 lvim.keys.normal_mode['<leader><leader>f']=":Telescope find_files<CR>"
-lvim.keys.normal_mode['<leader><leader>g']=":Telescope live_grep<CR>"
+lvim.keys.normal_mode['<leader><leader>F']=":Telescope live_grep<CR>"
 lvim.keys.normal_mode['<leader>b']=":Telescope buffers<CR>"
 lvim.keys.normal_mode['<leader>h']=":Telescope help_tags<CR>"
 
@@ -327,6 +343,20 @@ else
   lvim.keys.normal_mode["<C-\\>"] = nvim_tmux_nav.NvimTmuxNavigateLastActive
   lvim.keys.normal_mode["<C-Space>"] = nvim_tmux_nav.NvimTmuxNavigateNext
 end
+require('orgmode').setup_ts_grammar()
+
+-- Treesitter configuration
+require('nvim-treesitter.configs').setup {
+  -- If TS highlights are not enabled at all, or disabled via `disable` prop,
+  -- highlighting will fallback to default Vim syntax highlighting
+  highlight = {
+    enable = true,
+    -- Required for spellcheck, some LaTex highlights and
+    -- code block highlights that do not have ts grammar
+    additional_vim_regex_highlighting = {'org'},
+  },
+  ensure_installed = {'org'}, -- Or run :TSUpdate org
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {

@@ -1,7 +1,9 @@
 #!/bin/bash
-alias resource="source ~/.zshrc"
+alias resource="source ~/.zshrc && tmux source-file ~/.tmux.conf"
 alias vim="lvim"
-alias v="lvim"
+alias v="vim"
+alias notes="lvim ~/notepad"
+alias n="notes"
 
 myrconetime(){
 	# install brew
