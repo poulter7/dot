@@ -28,6 +28,10 @@ myrconetime(){
 		echo "already installed"
 	fi
 
+  echo "[karabiner-elements]"
+  brew install --cask karabiner-elements
+  echo "Open Karabiner-Elements, select Complex Modifications tab, and click Add rule at the bottom. Find 'Post escape if caps is pressed alone', left_ctrl otherwise and click on enable."
+
   echo "[direnv]"
   if ! [ -x "$(command -v direnv)" ]; then
     curl -sfL https://direnv.net/install.sh | bash
