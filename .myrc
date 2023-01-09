@@ -18,6 +18,14 @@ myrconetime(){
 	    brew update
 	fi
 
+  echo "[s3-fuse]"
+  if ! [ -x "$(command -v s3fs)" ]; then
+    brew install --cask macfuse
+    brew install gromgit/fuse/s3fs-mac
+  else
+    echo "already installed"
+  fi
+
 	echo "[vimac]"
 	if [[ ! -d "/applications/vimac.app" ]]; then
 		echo "installing"
@@ -125,7 +133,7 @@ myrcstartup(){
     export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
     export HISTSIZE=100000                   # big big history
     export HISTFILESIZE=100000               # big big history
-    setopt -s histappend                      # append to history, don't overwrite it
+    setopt -s histappend                     # append to history, don't overwrite it
 
     # Save and reload the history after each command finishes
     export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
