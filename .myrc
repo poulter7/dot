@@ -1,8 +1,17 @@
 #!/bin/bash
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  SESSION_TYPE=remote/ssh
+else
+  case $(ps -o comm= -p $PPID) in
+    sshd|*/sshd) SESSION_TYPE=remote/ssh;;
+  esac
+  alias vim=nvim
+fi
+
 alias resource="source ~/.zshrc && tmux source-file ~/.tmux.conf"
-alias v="nvim"
-alias notes="nvim ~/notepad"
+alias notes="v ~/notepad"
 alias n="notes"
+alias v="vim"
 
 myrconetime(){
 	# install brew
