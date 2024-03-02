@@ -1,3 +1,6 @@
 [submodule "apps/astrovim"]
 	path = apps/astrovim
 	url = https://github.com/poulter7/AstroNvim.git
+[submodule "apps/tpm"]
+	path = apps/tpm
+	url = https://github.com/poulter7/tpm.git
