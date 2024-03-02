@@ -1,0 +1,3 @@
+[submodule "apps/astrovim"]
+	path = apps/astrovim
+	url = https://github.com/poulter7/AstroNvim.git
