@@ -21,21 +21,6 @@ myrconetime(){
     echo "already installed"
   fi
 
-  echo "[spotifyd]"
-  if ! [ -x "$(command -v spotifyd)" ]; then
-    brew install spotifyd
-    brew services start spotifyd
-  else
-    echo "already installed"
-  fi
-
-  echo "[spotify-tui]"
-  if ! [ -x "$(command -v spt)" ]; then
-    brew install spotify-tui
-  else
-    echo "already installed"
-  fi
-
 	echo "[tmux]"
 	if ! [ -x  "$(command -v tmux)" ]; then
 		echo "installing"
