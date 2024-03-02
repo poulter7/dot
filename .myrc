@@ -14,40 +14,6 @@ alias n="notes"
 alias v="vim"
 
 myrconetime(){
-	# install brew
-	echo "[brew]"
-	which -s brew
-	if [[ $? != 0 ]] ; then
-	    # install homebrew
-	    echo "installing"
-	    ruby -e "$(curl -fssl https://raw.githubusercontent.com/homebrew/install/master/install)"
-	else
-	    echo "updating"
-	    brew update
-	fi
-
-  echo "[s3-fuse]"
-  if ! [ -x "$(command -v s3fs)" ]; then
-    brew install --cask macfuse
-    brew install gromgit/fuse/s3fs-mac
-  else
-    echo "already installed"
-  fi
-
-	echo "[vimac]"
-	if [[ ! -d "/applications/vimac.app" ]]; then
-		echo "installing"
-		# install vimac
-		brew tap kidonng/malt
-		brew install vimac
-	else
-		echo "already installed"
-	fi
-
-  echo "[karabiner-elements]"
-  brew install --cask karabiner-elements
-  echo "Open Karabiner-Elements, select Complex Modifications tab, and click Add rule at the bottom. Find 'Post escape if caps is pressed alone', left_ctrl otherwise and click on enable."
-
   echo "[direnv]"
   if ! [ -x "$(command -v direnv)" ]; then
     curl -sfL https://direnv.net/install.sh | bash
