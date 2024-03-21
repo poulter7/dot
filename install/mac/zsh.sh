@@ -1,3 +1,3 @@
 brew install zsh
-echo 'source ~/dot/alias.sh' >> ~/.zshrc
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sleep 5
