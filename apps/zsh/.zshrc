@@ -18,3 +18,7 @@ alias va='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
 
 alias resource='source ~/.zshrc'
+
+plugins=(git tmux)
+ZSH_TMUX_AUTOSTART=true
+source $ZSH/oh-my-zsh.sh
