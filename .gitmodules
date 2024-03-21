@@ -7,3 +7,6 @@
 [submodule "apps/tmux"]
 	path = apps/tmux
 	url = https://github.com/poulter7/.tmux.git
+[submodule "apps/nvim-astronvim"]
+	path = apps/nvim-astronvim
+	url = https://github.com/AstroNvim/AstroNvim
