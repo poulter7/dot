@@ -16,6 +16,3 @@
 [submodule "apps/nvim-nvchad"]
 	path = apps/nvim-nvchad
 	url = https://github.com/NvChad/starter
-[submodule "apps/nvim-lazyvim"]
-	path = apps/nvim-lazyvim
-	url = https://github.com/LazyVim/starter.git
