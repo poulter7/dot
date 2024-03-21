@@ -13,3 +13,9 @@
 [submodule "apps/nvim-astronvim-user"]
 	path = apps/nvim-astronvim-user
 	url = https://github.com/poulter7/astronvim_user.git
+[submodule "apps/nvim-lazyvim"]
+	path = apps/nvim-lazyvim
+	url = https://github.com/LazyVim/LazyVim.git
+[submodule "apps/nvim-nvchad"]
+	path = apps/nvim-nvchad
+	url = https://github.com/NvChad/starter
