@@ -19,3 +19,6 @@
 [submodule "nvim-lazyvim"]
 	path = nvim-lazyvim
 	url = https://github.com/LazyVim/starter.git
+[submodule "apps/nvim-lazyvim"]
+	path = apps/nvim-lazyvim
+	url = https://github.com/LazyVim/starter.git
