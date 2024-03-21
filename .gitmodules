@@ -10,3 +10,6 @@
 [submodule "apps/nvim-astronvim"]
 	path = apps/nvim-astronvim
 	url = https://github.com/AstroNvim/AstroNvim
+[submodule "apps/nvim-astronvim-user"]
+	path = apps/nvim-astronvim-user
+	url = https://github.com/poulter7/astronvim_user.git
