@@ -21,15 +21,15 @@ alias resource='source ~/.zshrc'
 
 plugins=(git tmux python poetry poetry-env rust ssh-agent vi-mode z)
 
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
+#VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+#VI_MODE_SET_CURSOR=true
 
-MODE_INDICATOR="%F{white}|%f"
-INSERT_MODE_INDICATOR="%F{yellow}-%f"
+#MODE_INDICATOR="%F{white}|%f"
+#INSERT_MODE_INDICATOR="%F{yellow}-%f"
 
 zstyle :omz:plugins:ssh-agent agent-forwarding yes
 
 ZSH_TMUX_AUTOSTART=true
 source $ZSH/oh-my-zsh.sh
-PROMPT="$PROMPT\$(vi_mode_prompt_info)"
-RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
+#PROMPT="$PROMPT\$(vi_mode_prompt_info)"
+#RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
