@@ -17,6 +17,9 @@ alias vk='NVIM_APPNAME=nvim-kickstart nvim' # Kickstart
 alias va='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
 
+mkdir -p ~/diary
+alias d='~/diary/diary.norg''
+
 alias resource='source ~/.zshrc'
 
 plugins=(git tmux python poetry poetry-env rust ssh-agent vi-mode z)
