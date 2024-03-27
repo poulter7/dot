@@ -18,7 +18,7 @@ alias va='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
 
 mkdir -p ~/diary
-alias d='~/diary/diary.norg''
+alias d='~/diary/diary.norg'
 
 alias resource='source ~/.zshrc'
 
