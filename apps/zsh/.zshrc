@@ -10,15 +10,15 @@ vv() {
   NVIM_APPNAME=$(basename $config) nvim $@
 }
 
-alias v='nvim' # default Neovim config
 alias vz='NVIM_APPNAME=nvim-lazyvim nvim' # LazyVim
 alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
 alias vk='NVIM_APPNAME=nvim-kickstart nvim' # Kickstart
 alias va='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
+alias v='va' # default Neovim config
 
 mkdir -p ~/diary
-alias d='~/diary/diary.norg'
+alias d='v ~/diary/diary.norg'
 
 alias resource='source ~/.zshrc'
 
