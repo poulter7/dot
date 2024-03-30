@@ -43,4 +43,4 @@ source $ZSH/oh-my-zsh.sh
 #RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
 alias lg='lazygit'
 alias ld='lazydocker'
-alias update-dot='~/dot/update.sh'
+alias update-dot='cd ~/dot;update.sh;cd -1'
