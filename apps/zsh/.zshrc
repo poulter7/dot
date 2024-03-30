@@ -40,4 +40,6 @@ ZSH_TMUX_AUTOSTART=true
 source $ZSH/oh-my-zsh.sh
 #PROMPT="$PROMPT\$(vi_mode_prompt_info)"
 #RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
+alias lg='lazygit'
+alias ld='lazydocker'
 
