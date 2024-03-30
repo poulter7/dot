@@ -11,3 +11,6 @@ git submodule update --recursive --remote
 Todo:
 - Improve Java LSP integration
 - navic
+- Navbuddy/a portal navigator
+- a jumplist navigator
+- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
