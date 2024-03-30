@@ -45,4 +45,4 @@ alias lg='lazygit'
 alias ld='lazydocker'
 
 # sets config location for lazy git
-export XDG_CONFIG_HOME="$HOME/.config
+export XDG_CONFIG_HOME="$HOME/.config"
