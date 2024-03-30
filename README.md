@@ -9,5 +9,5 @@ git submodule update --recursive --remote
 
 
 Todo:
-[ ] Add lazygit support for difftastic
-[ ] Improve Java LSP integration
+- Add lazygit support for difftastic
+- Improve Java LSP integration
