@@ -16,6 +16,7 @@ alias vk='NVIM_APPNAME=nvim-kickstart nvim' # Kickstart
 alias va='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
 alias v='va' # default Neovim config
+alias vim='va' # default Neovim config
 
 mkdir -p ~/diary
 alias d='v ~/diary/diary.norg'
@@ -42,4 +43,3 @@ source $ZSH/oh-my-zsh.sh
 #RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
 alias lg='lazygit'
 alias ld='lazydocker'
-
