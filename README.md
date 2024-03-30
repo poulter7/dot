@@ -12,4 +12,3 @@ Todo:
 - Add lazygit support for difftastic
 - Improve Java LSP integration
 - navic
-- set default color-schema to kanagawa
