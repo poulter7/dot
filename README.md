@@ -9,6 +9,5 @@ git submodule update --recursive --remote
 - Navigation: vimac, vimium, hop
 
 Todo:
-- Add lazygit support for difftastic
 - Improve Java LSP integration
 - navic
