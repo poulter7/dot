@@ -12,3 +12,4 @@ Todo:
 - Add lazygit support for difftastic
 - Improve Java LSP integration
 - Add navbuddy & navic
+- https://github.com/folke/flash.nvim
