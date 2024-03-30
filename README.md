@@ -11,5 +11,6 @@ git submodule update --recursive --remote
 Todo:
 - Add lazygit support for difftastic
 - Improve Java LSP integration
-- Add navbuddy & navic
-- https://github.com/folke/flash.nvim
+- navic
+- https://github.com/folke/flash.nvim - magenta for highlight
+- set default color-schema to kanagawa
