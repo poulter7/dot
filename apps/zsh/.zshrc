@@ -17,7 +17,7 @@ alias va='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
 alias v='va' # default Neovim config
 alias vim='va' # default Neovim config
-ZSHZ_CMD = j
+ZSHZ_CMD=j
 
 mkdir -p ~/diary
 alias d='v ~/diary/diary.norg'
