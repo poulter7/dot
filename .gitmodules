@@ -22,3 +22,6 @@
 [submodule "apps/nvim-lazyvim"]
 	path = apps/nvim-lazyvim
 	url = https://github.com/LazyVim/starter.git
+[submodule "apps/nvim-astronvim-v4"]
+	path = apps/nvim-astronvim-v4
+	url = https://github.com/poulter7/astrovim-v4-user.git

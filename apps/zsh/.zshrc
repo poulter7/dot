@@ -13,10 +13,12 @@ vv() {
 alias vz='NVIM_APPNAME=nvim-lazyvim nvim' # LazyVim
 alias vc='NVIM_APPNAME=nvim-nvchad nvim' # NvChad
 alias vk='NVIM_APPNAME=nvim-kickstart nvim' # Kickstart
-alias va='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
+alias va3='NVIM_APPNAME=nvim-astronvim nvim' # AstroVim
+alias va4='NVIM_APPNAME=nvim-astronvim-v4 nvim' # AstroVim
 alias vl='NVIM_APPNAME=nvim-lunarvim nvim' # LunarVim
-alias v='va' # default Neovim config
-alias vim='va' # default Neovim config
+alias v='va4' # default Neovim config
+alias va='va4' # default Neovim config
+alias vim='va4' # default Neovim config
 ZSHZ_CMD=j
 
 mkdir -p ~/diary
