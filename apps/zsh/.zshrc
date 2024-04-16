@@ -50,7 +50,7 @@ alias ld='lazydocker'
 
 # sets config location for lazy git
 export XDG_CONFIG_HOME="$HOME/.config"
-
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
 
 ### key-bindings.zsh ###
