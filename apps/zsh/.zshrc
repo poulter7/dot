@@ -28,9 +28,9 @@ alias d='v ~/diary/diary.norg'
 alias resource='source ~/.zshrc'
 
 if [ -n "$SSH_CONNECTION" ]; then
-  plugins=(git python poetry poetry-env rust ssh-agent vi-mode z)
+  plugins=(git direnv python poetry poetry-env rust ssh-agent vi-mode z)
 else
-  plugins=(git tmux python poetry poetry-env rust ssh-agent vi-mode z)
+  plugins=(git direnv python poetry poetry-env rust ssh-agent vi-mode z tmux )
 fi
 
 #VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
